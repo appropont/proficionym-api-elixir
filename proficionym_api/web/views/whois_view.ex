@@ -6,6 +6,6 @@ defmodule ProficionymApi.WhoisView do
   end
 
   def render("whois.json", %{whois: whois}) do
-    %{domain: whois}
+    %{domain: whois.domain, status: whois.status}s
   end
 end
