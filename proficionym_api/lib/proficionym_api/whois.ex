@@ -2,16 +2,17 @@ defmodule ProficionymApi.WhoisService do
   
   # currently uses third party module. will want to create a custom one eventually
   def lookup(domain) do
-
-    status = if status = get_cached_domain_lookup(domain) do
+    if status = get_cached_domain_lookup(domain) do
       status
     else
       {:ok, whois_result} = Whois.lookup(domain)
-      status = "registered"
-      if !whois_result.created_at do
-        status = "available"
+      status = if !whois_result.created_at do
+        "available"
+      else
+        "registered"
       end
       set_cached_domain_lookup(domain, status)
+      status
     end
   end
 

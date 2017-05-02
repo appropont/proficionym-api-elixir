@@ -18,7 +18,7 @@ defmodule ProficionymApi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {ProficionymApi, []},
-     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :httpotion, :erlsom, :redix]]
+     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :httpotion, :erlsom, :redix, :whois]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,9 @@ defmodule ProficionymApi.Mixfile do
      {:erlsom, "~> 1.4.1"},
      #{:poison, "~> 3.0"}
      {:redix, ">= 0.0.0"},
-     {:whois, "~> 0.0.1"}
+     {:whois, "~> 0.0.1"},
+     {:exrm, "~> 1.0"},
+     {:exrm_docker, "~> 0.2.1"}
     ]
   end
 
